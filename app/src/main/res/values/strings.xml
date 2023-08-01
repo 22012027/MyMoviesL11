@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MyMoviesL11</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="enter_movie_title_here">enter movie title here</string>
+    <string name="genre">Genre</string>
+    <string name="enter_genre_here">enter genre here</string>
+    <string name="year">Year</string>
+    <string name="enter_year_of_release_here">enter year of release here</string>
+    <string name="rating">Rating</string>
+    <string name="ratingSpinner">rating</string>
+    <string name="insert">INSERT</string>
+    <string name="show_list">SHOW LIST</string>
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+    <string name="movie_id">Movie ID</string>
+    <string name="enter_movie_id_here">enter movie ID here</string>
+    <string name="cancel">CANCEL</string>
+    <string-array name="spinnerRatings">
+        <item>G</item>
+        <item>PG</item>
+        <item>PG13</item>
+        <item>NC16</item>
+        <item>M18</item>
+        <item>R21</item>
+    </string-array>
+</resources>
