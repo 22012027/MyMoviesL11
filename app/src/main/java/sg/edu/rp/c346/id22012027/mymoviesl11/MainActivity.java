@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,43 +42,13 @@ public class MainActivity extends AppCompatActivity {
         buttonInsert= findViewById(R.id.buttonInsert);
         buttonShowList= findViewById(R.id.buttonShowList);
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        textViewRating.setText("G is Selected");
-                        break;
-                    case 1:
-                        textViewRating.setText("PG is Selected");
-                        break;
-                    case 2:
-                        textViewRating.setText("PG13 is Selected");
-                        break;
-                    case 3:
-                        textViewRating.setText("NC16 is Selected");
-                        break;
-                    case 4:
-                        textViewRating.setText("M18 is Selected");
-                        break;
-                    case 5:
-                        textViewRating.setText("R21 is Selected");
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
         buttonInsert.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 DBHelper db = new DBHelper(MainActivity.this);
 
-                db.insertMovies(editTextMovieTitle.getText().toString(), editTextGenre.getText().toString(), Integer.parseInt(editTextYear.getText().toString()), String.valueOf(spinner));
+                db.insertMovies(editTextMovieTitle.getText().toString(), editTextGenre.getText().toString(), Integer.parseInt(editTextYear.getText().toString()),spinner.getSelectedItem().toString());
+                Toast.makeText(MainActivity.this, "Inserted successfully", Toast.LENGTH_SHORT).show();
                 db.close();
             }
         });

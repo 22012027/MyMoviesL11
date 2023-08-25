@@ -28,9 +28,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String createTableSql = "CREATE TABLE " + TABLE_MOVIES +  "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + COLUMN_TITLE + " TEXT,"
-                + COLUMN_GENRE + "TEXT,"
-                + COLUMN_YEAR + " INTEGER,"
+                + COLUMN_TITLE + " TEXT, "
+                + COLUMN_GENRE + " TEXT, "
+                + COLUMN_YEAR + " INTEGER, "
                 + COLUMN_RATING + " TEXT)";
         db.execSQL(createTableSql);
         Log.i("info" ,"created tables");

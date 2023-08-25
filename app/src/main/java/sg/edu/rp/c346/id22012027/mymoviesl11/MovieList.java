@@ -65,9 +65,9 @@ public class MovieList extends AppCompatActivity {
         listViewMovies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long identity) {
-                Movies movies= Movies.get(position);
+                Movies movie= Movies.get(position);
                 Intent i= new Intent(MovieList.this, MovieListUpdate.class);
-                i.putExtra("movie", Movies);
+                i.putExtra("movieId", movie);
                 startActivity(i);
 
             }
@@ -80,23 +80,5 @@ public class MovieList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        DBHelper db= new DBHelper(MovieList.this);
-
-        ArrayList<Movies> Movies = db.getMovies();
-
-        db.close();
-
-        Movies.clear();
-        Movies.addAll(db.getMovies());
-
-        ca= new CustomAdapter(this, R.layout.row, Movies);
-        listViewMovies.setAdapter(ca);
-        ca.notifyDataSetChanged();
     }
 }
